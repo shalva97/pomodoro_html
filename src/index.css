@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+/* Class-based dark mode: responds to .dark on <html> */
+@variant dark (&:where(.dark *));
+
+:root {
+  --ring-track: #E5E7EB;
+}
+
+.dark {
+  --ring-track: #1F2937;
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui,
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .timer-transition {
+    transition: background-color 0.4s ease;
+  }
+
+  .ring-transition {
+    transition: stroke-dashoffset 0.9s linear, stroke 0.4s ease;
+  }
+}
+
+/* Duration slider */
+.pomo-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  border-radius: 9999px;
+  outline: none;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+.pomo-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2.5px solid var(--accent, #ef4444);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  cursor: grab;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pomo-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
+}
+
+.pomo-slider::-webkit-slider-thumb:active {
+  transform: scale(1.18);
+  cursor: grabbing;
+}
+
+.pomo-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2.5px solid var(--accent, #ef4444);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  cursor: grab;
+}
+
+.dark .pomo-slider::-webkit-slider-thumb {
+  background: #1f2937;
+}
+
+.dark .pomo-slider::-moz-range-thumb {
+  background: #1f2937;
+}
