@@ -21,7 +21,7 @@ export default function App() {
   }, [isDark])
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/pomodoro_html/">
       <TimerProvider>
         <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-300">
           <NavBar isDark={isDark} onToggle={() => setIsDark((d) => !d)} />

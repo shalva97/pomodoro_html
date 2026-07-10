@@ -1,0 +1,16 @@
+<input id="token" placeholder="Paste Todoist token">
+<button onclick="test()">Test</button>
+
+<script>
+  async function test() {
+    const token = document.getElementById("token").value;
+
+    const res = await fetch("https://api.todoist.com/rest/v2/tasks", {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    console.log(await res.json());
+  }
+</script>
