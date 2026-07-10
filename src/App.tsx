@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import { TimerProvider } from './store/timerContext'
 import NavBar from './components/NavBar'
 import TimerPage from './pages/TimerPage'
@@ -21,7 +21,7 @@ export default function App() {
   }, [isDark])
 
   return (
-    <BrowserRouter basename="/pomodoro_html/">
+    <HashRouter>
       <TimerProvider>
         <div className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-300">
           <NavBar isDark={isDark} onToggle={() => setIsDark((d) => !d)} />
@@ -32,6 +32,6 @@ export default function App() {
           </Routes>
         </div>
       </TimerProvider>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
